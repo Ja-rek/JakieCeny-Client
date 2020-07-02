@@ -1,0 +1,64 @@
+/*
+  elm-hot creates an additional div wrapper around the app to make HMR possible.
+  This could break styling in development mode if you are using Elm UI.
+
+  More context in the issue:
+    https://github.com/halfzebra/create-elm-app/issues/320
+*/
+nav.top-menu {
+  height: 64px;
+  background-color: #009688;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 69; }
+  nav.top-menu a {
+    display: inline-block; }
+  nav.top-menu i {
+    text-align: left;
+    font-family: 'Material Icons';
+    color: white;
+    font-style: normal;
+    font-weight: normal;
+    display: block;
+    float: left;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    text-rendering: optimizeLegibility; }
+  nav.top-menu div.menu {
+    float: left; }
+  nav.top-menu i.button {
+    line-height: 20px;
+    font-size: 20px;
+    padding: 21px;
+    border-right: solid 1px #45a49b; }
+  nav.top-menu div.search i {
+    line-height: 18px;
+    font-size: 18px;
+    height: 18px;
+    padding: 23px;
+    padding-right: 10px;
+    padding-bottom: 2px; }
+  nav.top-menu div.search input {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    height: 60px;
+    font-size: 14px;
+    color: #fff; }
+  nav.top-menu div.search ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fafafa;
+    opacity: 1;
+    /* Firefox */ }
+  nav.top-menu div.search :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #fafafa; }
+  nav.top-menu div.search ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #fafafa; }

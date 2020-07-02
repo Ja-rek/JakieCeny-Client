@@ -1,7 +1,8 @@
-module Router.Routes exposing (routes, toPath)
+module Router.Routes exposing (routes, toPage, toPath)
 
 import Router.Types exposing (Page(..))
-import Url.Parser exposing (Parser, map, oneOf, s, top)
+import Url exposing (Url)
+import Url.Parser exposing (Parser, map, oneOf, parse, s, top)
 
 
 routes : Parser (Page -> a) a
@@ -11,6 +12,11 @@ routes =
         , map NotFound (s "404")
         , map Products (s "products")
         ]
+
+
+toPage : Url -> Page
+toPage url =
+    Maybe.withDefault NotFound <| parse routes url
 
 
 toPath : Page -> String

@@ -1,0 +1,85 @@
+/*
+  elm-hot creates an additional div wrapper around the app to make HMR possible.
+  This could break styling in development mode if you are using Elm UI.
+
+  More context in the issue:
+    https://github.com/halfzebra/create-elm-app/issues/320
+*/
+@import "../Components/TopMenu/view.scss";
+@import "../Components/LeftMenu/view.scss";
+@import "../Components/Panel/view.scss";
+@import "../Components/Grid/view.scss";
+
+[data-elm-hot="true"] {
+  height: inherit;
+}
+
+body {
+  font-family: Roboto;
+  margin: 0;
+  //color: #333;
+  color: #3D4051;
+  background: #f6f6f6;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+div.container {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 64px;
+}
+
+strong {
+  font-size: 1.1em;
+  display: block;
+}
+
+img {
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+.cart .img {
+    width: 25%;
+    padding: 1rem 0 1rem 1rem;
+    box-sizing: border-box;
+    text-align: center;
+    height: 200px;
+    line-height: calc(200px - 2rem);
+    float: left;
+}
+
+.cart .description {
+    width: 55%;
+    padding: 1rem 0 1rem 1rem;
+    box-sizing: border-box;
+    height: 200px;
+    float: left;
+}
+
+.cart .info {
+    width: 20%;
+    padding: 1rem 0 1rem 1rem;
+    box-sizing: border-box;
+    height: 200px;
+    float: left;
+}
+
+span {
+  float: left;
+  font-size: 0.8em;
+}
+
+.cart {
+  margin-top: 20px;
+  margin-left: 400px;
+  width: 940px;
+  height: 200px;
+  background: white;
+  border-radius: 10px;
+  text-align: left;
+}

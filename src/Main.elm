@@ -1,56 +1,20 @@
-module Main exposing (Model, Msg, init, subscriptions, update, view)
+module Main exposing (main)
 
-import Browser exposing (UrlRequest)
-import Browser.Navigation exposing (Key)
-import Html exposing (..)
-import Router.Types as Router exposing (Msg(..), Page(..), Router)
-import Url exposing (Url)
+import Browser
+import Common.Types as Common exposing (Msg(..))
+import Layout.Types exposing (Layout)
+import Layout.Update exposing (init, subscriptions, update)
+import Layout.View exposing (view)
+import Router.Types exposing (Msg(..))
 
 
-main : Program () Model Msg
+main : Program () Layout Common.Msg
 main =
     Browser.application
         { init = init
         , view = view
         , update = update
         , subscriptions = subscriptions
-        , onUrlRequest = GotRouterMsg << Router.OnUrlRequest
-        , onUrlChange = GotRouterMsg << Router.OnUrlChange
+        , onUrlRequest = Router << OnUrlRequest
+        , onUrlChange = Router << OnUrlChange
         }
-
-
-type alias Model =
-    { router : Router
-    , url : Url
-    }
-
-
-init : () -> Url -> Key -> ( Model, Cmd Msg )
-init _ url key =
-    ( Model (Router Home key) url, Cmd.none )
-
-
-type Msg
-    = GotRouterMsg Router.Msg
-
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    ( model, Cmd.none )
-
-
-subscriptions : Model -> Sub Msg
-subscriptions model =
-    Sub.none
-
-
-view : Model -> Browser.Document Msg
-view model =
-    { title = "Application Title"
-    , body =
-        [ div []
-            [ text "New Application"
-            , text (Url.toString model.url)
-            ]
-        ]
-    }
