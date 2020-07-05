@@ -3,6 +3,7 @@ module Layout.Update exposing (init, subscriptions, update)
 import Browser.Navigation exposing (Key)
 import Common.Types exposing (Msg(..))
 import Layout.Types exposing (Layout)
+import Pages.Products.Types exposing (Products)
 import Router.Routes exposing (routes)
 import Router.Types as Rout exposing (Page(..))
 import Router.Update as Rout exposing (update)
@@ -28,7 +29,8 @@ update msg state =
 
 init : () -> Url -> Key -> ( Layout, Cmd Msg )
 init _ url key =
-    ( Layout
-        (Rout.Router (Maybe.withDefault NotFound <| parse routes url) key)
+    ( { router = Rout.Router (Maybe.withDefault NotFound <| parse routes url) key
+      , products = {}
+      }
     , Cmd.none
     )
