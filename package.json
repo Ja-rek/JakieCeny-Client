@@ -1,6 +1,6 @@
 {
    "scripts": {
-     "build-css": "node-sass-chokidar --include-path ./src/Layout --include-path ./node_modules src/Layout/ -o src/Layout/",
-     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/Layout --include-path ./node_modules src/Layout/ -o src/Layout/ --watch --recursive"   
+     "build-css": "node-sass-chokidar --include-path ./src/Css --include-path ./node_modules src/Css/ -o src/Css/",
+     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/Css --include-path ./node_modules src/Css/ -o src/Css/ --watch --recursive"   
    }
 }

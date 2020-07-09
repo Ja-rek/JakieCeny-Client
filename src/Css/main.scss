@@ -5,11 +5,11 @@
   More context in the issue:
     https://github.com/halfzebra/create-elm-app/issues/320
 */
-@import "../Components/TopMenu/view.scss";
-@import "../Components/LeftMenu/view.scss";
-@import "../Components/Panel/view.scss";
-@import "../Components/Grid/view.scss";
-
+@import "grid.scss";
+@import "top_menu.scss";
+@import "left_menu.scss";
+@import "products.scss";
+@import "panel.scss";
 [data-elm-hot="true"] {
   height: inherit;
 }
@@ -17,8 +17,7 @@
 body {
   font-family: Roboto;
   margin: 0;
-  //color: #333;
-  color: #3D4051;
+  color: #4d4d4d;
   background: #f6f6f6;
   font-size: 14px;
 }
@@ -69,11 +68,6 @@ img {
     float: left;
 }
 
-span {
-  float: left;
-  font-size: 0.8em;
-}
-
 .cart {
   margin-top: 20px;
   margin-left: 400px;
@@ -83,3 +77,4 @@ span {
   border-radius: 10px;
   text-align: left;
 }
+

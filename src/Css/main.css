@@ -12,6 +12,46 @@
   More context in the issue:
     https://github.com/halfzebra/create-elm-app/issues/320
 */
+[class*='c-'] {
+  padding: 1em;
+  width: 100%;
+  min-height: 1px;
+  float: left;
+  box-sizing: border-box; }
+
+@media only screen and (min-width: 30em) {
+  .c-1 {
+    width: 8.33333%; }
+  .c-2 {
+    width: 16.66667%; }
+  .c-3 {
+    width: 25%; }
+  .c-4 {
+    width: 33.33333%; }
+  .c-5 {
+    width: 41.66667%; }
+  .c-6 {
+    width: 50%; }
+  .c-7 {
+    width: 58.33333%; }
+  .c-8 {
+    width: 66.66667%; }
+  .c-9 {
+    width: 75%; }
+  .c-10 {
+    width: 83.33333%; }
+  .c-11 {
+    width: 91.66667%; }
+  .c-12 {
+    width: 100%; } }
+
+/*
+  elm-hot creates an additional div wrapper around the app to make HMR possible.
+  This could break styling in development mode if you are using Elm UI.
+
+  More context in the issue:
+    https://github.com/halfzebra/create-elm-app/issues/320
+*/
 nav.top-menu {
   height: 64px;
   background-color: #009688;
@@ -103,6 +143,62 @@ nav.left-menu {
     display: block;
     opacity: 1; }
 
+div.products-page {
+  width: auto;
+  margin-top: 64px;
+  margin-left: 260px;
+  padding: 20px;
+  overflow: auto; }
+
+div.products {
+  display: table;
+  width: 100%;
+  max-width: 100%; }
+  div.products ul {
+    display: table-row-group;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 15px; }
+    div.products ul li {
+      display: table-row;
+      height: 100px;
+      overflow: hidden;
+      width: 100%; }
+      div.products ul li .description {
+        width: 500px; }
+      div.products ul li .images {
+        width: 100px;
+        padding-right: 10px; }
+      div.products ul li div {
+        vertical-align: middle;
+        display: table-cell;
+        border-top: 1px solid #ddd;
+        padding: 15px 5px;
+        height: 100px;
+        width: 80px; }
+        div.products ul li div .title {
+          width: 380px;
+          font-weight: 400;
+          vertical-align: middle; }
+        div.products ul li div span {
+          display: inherit;
+          vertical-align: middle;
+          font-weight: 500;
+          color: #4d4d4d; }
+        div.products ul li div img {
+          max-height: 100px;
+          max-width: 100px; }
+  div.products div.products-header {
+    display: table-header-group; }
+    div.products div.products-header div {
+      display: table-cell;
+      padding: 15px 5px;
+      border: 0;
+      font-weight: 500;
+      color: #4d4d4d; }
+
 .panel {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -111,53 +207,13 @@ nav.left-menu {
   border-radius: 2px;
   padding: 15px; }
 
-/*
-  elm-hot creates an additional div wrapper around the app to make HMR possible.
-  This could break styling in development mode if you are using Elm UI.
-
-  More context in the issue:
-    https://github.com/halfzebra/create-elm-app/issues/320
-*/
-[class*='c-'] {
-  padding: 1em;
-  width: 100%;
-  min-height: 1px;
-  float: left;
-  box-sizing: border-box; }
-
-@media only screen and (min-width: 30em) {
-  .c-1 {
-    width: 8.33333%; }
-  .c-2 {
-    width: 16.66667%; }
-  .c-3 {
-    width: 25%; }
-  .c-4 {
-    width: 33.33333%; }
-  .c-5 {
-    width: 41.66667%; }
-  .c-6 {
-    width: 50%; }
-  .c-7 {
-    width: 58.33333%; }
-  .c-8 {
-    width: 66.66667%; }
-  .c-9 {
-    width: 75%; }
-  .c-10 {
-    width: 83.33333%; }
-  .c-11 {
-    width: 91.66667%; }
-  .c-12 {
-    width: 100%; } }
-
 [data-elm-hot="true"] {
   height: inherit; }
 
 body {
   font-family: Roboto;
   margin: 0;
-  color: #3D4051;
+  color: #4d4d4d;
   background: #f6f6f6;
   font-size: 14px; }
 
@@ -199,10 +255,6 @@ img {
   box-sizing: border-box;
   height: 200px;
   float: left; }
-
-span {
-  float: left;
-  font-size: 0.8em; }
 
 .cart {
   margin-top: 20px;
