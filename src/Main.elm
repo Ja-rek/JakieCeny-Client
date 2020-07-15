@@ -3,6 +3,7 @@ module Main exposing (main)
 import Browser exposing (Document, UrlRequest(..))
 import Browser.Navigation as Nav exposing (Key, load, pushUrl)
 import Components exposing (topMenu)
+import Components.LeftMenu exposing (leftMenu)
 import Html exposing (Html, div, nav, text)
 import Html.Attributes exposing (class)
 import Pages.Products as Products exposing (init, productsPage)
@@ -111,7 +112,6 @@ viewLayout p msg html =
 layout : Html msg -> List (Html msg)
 layout page =
     [ topMenu
-    , nav [ class "left-menu" ] [ text "sdfsdf" ]
     , page
     ]
 
@@ -128,8 +128,8 @@ notFound =
 subscriptions : Model -> Sub Msg
 subscriptions m =
     case m.state of
-        Products _ ->
-            Sub.map ProductsMsg Products.subscriptions
+        Products m_ ->
+            Sub.map ProductsMsg (Products.subscriptions m_)
 
         _ ->
             Sub.none

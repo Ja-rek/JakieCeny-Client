@@ -510,7 +510,7 @@ computeElementsAndSizesForSimpleHeight (Config { offset, containerHeight, keepFi
             elementsCountToSkip * itemHeight
 
         totalHeight =
-            (List.length items * itemHeight) + 64
+            (List.length items * itemHeight) + 44
     in
     { skipCount = elementsCountToSkip, elements = elementsToShow, topMargin = topMargin, totalHeight = totalHeight }
 

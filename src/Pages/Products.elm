@@ -3,6 +3,8 @@ module Pages.Products exposing (Model, Msg(..), Product, ProductStatus(..), Prop
 import Browser.Dom exposing (Viewport, getViewport)
 import Browser.Events as Event
 import Components exposing (grid)
+import Components.LeftMenu as LeftMenu exposing (Msg(..), leftMenu)
+import Components.RippleButton as RippleButton
 import Html exposing (Html, div, img, li, span, text, ul)
 import Html.Attributes exposing (class, src, style)
 import Http
@@ -22,6 +24,7 @@ type alias Model =
     , content : List Product
     , height : Int
     , productStatus : ProductStatus
+    , leftMenu : LeftMenu.Model
     }
 
 
@@ -54,6 +57,7 @@ init _ =
       , content = []
       , height = 0
       , productStatus = Loading
+      , leftMenu = LeftMenu.Model [] []
       }
     , Cmd.batch
         [ Task.perform GotViewport getViewport
@@ -71,6 +75,7 @@ type Msg
     | GotNewWidth Int
     | GotViewport Viewport
     | GotProduct (Result Http.Error (List Product))
+    | LeftMenu LeftMenu.Msg
 
 
 update : Msg -> Page Model -> ( Page Model, Cmd Msg )
@@ -93,6 +98,13 @@ update msg m =
                 Err _ ->
                     ( { m | productStatus = Fail }, Cmd.none )
 
+        LeftMenu smsg ->
+            let
+                ( sm, scmd ) =
+                    LeftMenu.update smsg m.leftMenu
+            in
+            ( { m | leftMenu = sm }, Cmd.map LeftMenu scmd )
+
 
 roundHeight : Viewport -> Int
 roundHeight v =
@@ -108,9 +120,12 @@ margin =
 --SUBSCRIPTIONS
 
 
-subscriptions : Sub Msg
-subscriptions =
-    Event.onResize (\_ h -> GotNewWidth (h - margin))
+subscriptions : Page Model -> Sub Msg
+subscriptions m =
+    Sub.batch
+        [ Event.onResize (\_ h -> GotNewWidth (h - margin))
+        , Sub.map (LeftMenu << SectionActivated) (RippleButton.subscriptions m.leftMenu.rippleEfect)
+        ]
 
 
 
@@ -159,7 +174,8 @@ productsPage m =
         , class "products-page"
         , IL.onScroll InfListMsg
         ]
-        [ grid 12
+        [ Html.map LeftMenu (leftMenu m.leftMenu)
+        , grid 12
             [ class "panel" ]
             [ case m.productStatus of
                 Succes p ->
@@ -217,7 +233,7 @@ config : Int -> IL.Config Product Msg
 config h =
     let
         itemHeight =
-            131
+            111
     in
     IL.config
         { itemView = productsView

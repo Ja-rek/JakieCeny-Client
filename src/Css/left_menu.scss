@@ -7,25 +7,51 @@
 */
 nav.left-menu {
   height: 100%;
-  width: 260px;
+  width: 280px;
   background-color: #fff;
   box-shadow: 2px 0 2px 0 rgba(0,0,0,0.12);
   position: fixed;
   top: 64px;
   left: 0;
   z-index: 0;
+  line-height: 48px;
 
   ul {
-    margin-top: 40px;
-
+    padding: unset;
     list-style-type: none;
     font-size: 13px;
-    font-weight: 500;
-    padding-left: 25px;
+    padding: 0px 16px;
+
+    li.title 
+    {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(0, 0, 0, 0.5);
+    }
 
     li {
-      padding: 13px 0 13px 25px;
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: capitalize;
+
+      &:after {
+        font-family: 'Material Icons';
+        content: "keyboard_arrow_down";
+        float: right;
+        text-transform: none;
+      }
+
+      &:before {
+        display: block;
+        width: 20px;
+        font-family: 'Material Icons';
+        content: "menu";
+        float: left;
+        text-transform: none;
+      }
+
     }
+
   }
 
   .scale-up-bottom {

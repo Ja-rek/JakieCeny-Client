@@ -119,21 +119,39 @@ nav.top-menu {
 */
 nav.left-menu {
   height: 100%;
-  width: 260px;
+  width: 280px;
   background-color: #fff;
   box-shadow: 2px 0 2px 0 rgba(0, 0, 0, 0.12);
   position: fixed;
   top: 64px;
   left: 0;
-  z-index: 0; }
+  z-index: 0;
+  line-height: 48px; }
   nav.left-menu ul {
-    margin-top: 40px;
+    padding: unset;
     list-style-type: none;
     font-size: 13px;
-    font-weight: 500;
-    padding-left: 25px; }
+    padding: 0px 16px; }
+    nav.left-menu ul li.title {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(0, 0, 0, 0.5); }
     nav.left-menu ul li {
-      padding: 13px 0 13px 25px; }
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: capitalize; }
+      nav.left-menu ul li:after {
+        font-family: 'Material Icons';
+        content: "keyboard_arrow_down";
+        float: right;
+        text-transform: none; }
+      nav.left-menu ul li:before {
+        display: block;
+        width: 20px;
+        font-family: 'Material Icons';
+        content: "menu";
+        float: left;
+        text-transform: none; }
   nav.left-menu .scale-up-bottom {
     background-color: red;
     display: none;
@@ -146,7 +164,7 @@ nav.left-menu {
 div.products-page {
   width: auto;
   margin-top: 64px;
-  margin-left: 260px;
+  margin-left: 280px;
   padding: 20px;
   overflow: auto; }
 
@@ -169,14 +187,13 @@ div.products {
       div.products ul li .description {
         width: 500px; }
       div.products ul li .images {
-        width: 100px;
         padding-right: 10px; }
       div.products ul li div {
         vertical-align: middle;
         display: table-cell;
         border-top: 1px solid #ddd;
         padding: 15px 5px;
-        height: 100px;
+        height: 80px;
         width: 80px; }
         div.products ul li div .title {
           width: 380px;
@@ -188,8 +205,8 @@ div.products {
           font-weight: 500;
           color: #4d4d4d; }
         div.products ul li div img {
-          max-height: 100px;
-          max-width: 100px; }
+          max-height: 80px;
+          max-width: 80px; }
   div.products div.products-header {
     display: table-header-group; }
     div.products div.products-header div {
@@ -232,6 +249,19 @@ strong {
 img {
   max-height: 100%;
   vertical-align: middle; }
+
+i {
+  text-align: left;
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: normal;
+  display: block;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  text-rendering: optimizeLegibility; }
 
 .cart .img {
   width: 25%;

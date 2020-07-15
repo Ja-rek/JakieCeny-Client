@@ -1,7 +1,7 @@
 div.products-page {
   width: auto;
   margin-top: 64px;
-  margin-left: 260px;
+  margin-left: 280px;
   padding: 20px;
   overflow: auto; }
 
@@ -24,14 +24,13 @@ div.products {
       div.products ul li .description {
         width: 500px; }
       div.products ul li .images {
-        width: 100px;
         padding-right: 10px; }
       div.products ul li div {
         vertical-align: middle;
         display: table-cell;
         border-top: 1px solid #ddd;
         padding: 15px 5px;
-        height: 100px;
+        height: 80px;
         width: 80px; }
         div.products ul li div .title {
           width: 380px;
@@ -43,8 +42,8 @@ div.products {
           font-weight: 500;
           color: #4d4d4d; }
         div.products ul li div img {
-          max-height: 100px;
-          max-width: 100px; }
+          max-height: 80px;
+          max-width: 80px; }
   div.products div.products-header {
     display: table-header-group; }
     div.products div.products-header div {
